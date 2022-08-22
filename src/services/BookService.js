@@ -19,6 +19,10 @@ class BookService{
     deleteBook(id){
         return axios.delete(ONE_BOOK_BASE_API_URL+'/'+id);
     }
+
+    getBooksOfAuthor(author){
+        return axios.get(BOOKS_BASE_API_URL+'?author='+author);
+    }
 }
 
 export default new BookService()
