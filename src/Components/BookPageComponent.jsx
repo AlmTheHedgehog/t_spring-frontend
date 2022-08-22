@@ -38,16 +38,11 @@ class BookPageComponent extends Component {
                 <h1 className="display-5 text-center">{this.state.title}</h1>
                 <h3 className="text-center">{this.state.publishDate}</h3>
                 <div style={{margin:50}}>
-                    <p>
-                        <div className='book-text'><b>Author: </b>{this.state.author}</div>
-                    </p>
-                    <p>
-                        <div className='book-text'><b>Publisher: </b>{this.state.publisher}</div>
-                    </p>
-                    <p>
-                        <div className='book-text'><b>ISBN: </b>{this.state.isbn}</div>
-                        
-                    </p>
+                    <div className='book-text'>
+                        <p><b>Author: </b>{this.state.author}</p>
+                        <p><b>Publisher: </b>{this.state.publisher}</p>
+                        <p><b>ISBN: </b>{this.state.isbn}</p>
+                    </div>
                 </div>
                 <div className='text-center'>
                     <button type='button' className='btn btn-danger text-center' onClick={this.deleteBook}>Delete</button>
