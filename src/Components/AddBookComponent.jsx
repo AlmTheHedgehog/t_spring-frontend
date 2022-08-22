@@ -27,6 +27,7 @@ class AddBookComponent extends Component {
 
     addBook = (event) =>{
         event.preventDefault();
+        console.log('before validation');
         if(this.validate()){
             let publisher = this.state.publisher;
             let isbn = this.state.isbn;
@@ -39,8 +40,10 @@ class AddBookComponent extends Component {
             
             let newBook = {title: this.state.title, author: this.state.author, publishDate: this.state.publishDate,
                 publisher: publisher, isbn: isbn};
+            console.log('before Bookservice.addBook');
             BookService.addBook(newBook).then(()=>{
-                this.props.navigate('/allbooks');
+                console.log('Ok.');
+                //this.props.navigate('/allbooks');
             })
         }
     }
