@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BOOKS_BASE_API_URL = "https://library-online-t-api-backend.herokuapp.com/api/v1/books"
+const BOOKS_BASE_API_URL = "http://library-online-t-api-backend.herokuapp.com/api/v1/books"
 const ONE_BOOK_BASE_API_URL = "https://library-online-t-api-backend.herokuapp.com/api/v1/book"
 
 class BookService{
