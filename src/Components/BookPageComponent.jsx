@@ -17,7 +17,7 @@ class BookPageComponent extends Component {
 
     deleteBook(){
         BookService.deleteBook(this.state.id).then(()=>{
-            this.props.navigate('/allbooks');
+            this.props.navigate(-1);
         })
     }
 
@@ -35,11 +35,11 @@ class BookPageComponent extends Component {
     render() {
         return (
             <div>
-                <h1 className="display-5 text-center">{this.state.title}</h1>
+                <h1 className="text-center">{this.state.title}</h1>
                 <h3 className="text-center">{this.state.publishDate}</h3>
                 <div style={{margin:50}}>
                     <div className='book-text'>
-                        <p><b>Author: </b>{this.state.author}</p>
+                        <p><b>Author: </b><a className='simple-link' href={'/author/' + this.state.author}>{this.state.author}</a></p>
                         <p><b>Publisher: </b>{this.state.publisher}</p>
                         <p><b>ISBN: </b>{this.state.isbn}</p>
                     </div>

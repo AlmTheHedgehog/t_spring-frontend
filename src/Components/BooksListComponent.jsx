@@ -25,7 +25,7 @@ class BooksListComponent extends Component {
         return (
             <div>
                 <h1 className='text-center'>Whole library</h1>
-                <div className='row'>
+                <div className='table-div'>
                     <table className='table table-bordered'>
                         <thead>
                             <tr>
@@ -42,9 +42,11 @@ class BooksListComponent extends Component {
                                     book =>
                                     <tr key={book.id}>
                                         <td className='w-30'>
-                                            <a className='simple-link' href={'book/' + book.id}>{book.title}</a>
+                                            <a className='simple-link' href={'/book/' + book.id}>{book.title}</a>
                                         </td>
-                                        <td className='w-20'>{book.author}</td>
+                                        <td className='w-20'>
+                                            <a className='simple-link' href={'/author/' + book.author}>{book.author}</a>    
+                                        </td>
                                         <td className='w-5 text-center'>{this.getDate(book)}</td>
                                         <td className='w-25'>{book.publisher}</td>
                                         <td className='w-20'>{book.isbn}</td>

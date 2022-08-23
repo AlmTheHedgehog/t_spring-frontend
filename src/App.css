@@ -20,6 +20,10 @@ b{
   font-weight: 500;
 }
 
+.table-div{
+  margin-top: 30px;
+}
+
 .book-text{
   font-size: 16pt;
 }
@@ -63,6 +67,9 @@ a:active{
 }
 .w-30{
   width: 30%;
+}
+.w-45{
+  width: 45%;
 }
 .w-50{
   width: 50%;
