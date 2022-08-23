@@ -1,13 +1,26 @@
 import axios from 'axios';
 
-//const BOOKS_BASE_API_URL = "https://library-online-t-api-backend.herokuapp.com/api/v1/books"
-//const ONE_BOOK_BASE_API_URL = "https://library-online-t-api-backend.herokuapp.com/api/v1/book"
-const BOOKS_BASE_API_URL = "http://localhost:8080/api/v1/books"
-const ONE_BOOK_BASE_API_URL = "http://localhost:8080/api/v1/book"
+const BOOKS_BASE_API_URL = "https://library-online-t-api-backend.herokuapp.com/api/v1/books"
+const ONE_BOOK_BASE_API_URL = "https://library-online-t-api-backend.herokuapp.com/api/v1/book"
+//const BOOKS_BASE_API_URL = "http://localhost:8080/api/v1/books"
+//const ONE_BOOK_BASE_API_URL = "http://localhost:8080/api/v1/book"
 
 class BookService{
-    getBooks(){
-        return axios.get(BOOKS_BASE_API_URL);
+    /**
+     * 
+     * @param {string} Direction - {Up|Down}
+     * @param {string} compElement - {Year|Author|Title|Publisher|ISBN}
+     */
+    getSortString(Direction, compElement){
+        return Direction + "By" + compElement;
+    }
+
+    getBooks(sorting){
+        if(sorting === null){
+            return axios.get(BOOKS_BASE_API_URL);
+        }else{
+            return axios.get(BOOKS_BASE_API_URL+'?sorting='+sorting);
+        }
     }
 
     addBook(book){
@@ -22,8 +35,12 @@ class BookService{
         return axios.delete(ONE_BOOK_BASE_API_URL+'/'+id);
     }
 
-    getBooksOfAuthor(author){
-        return axios.get(BOOKS_BASE_API_URL+'?author='+author);
+    getBooksOfAuthor(author, sorting){
+        if(sorting === null){
+            return axios.get(BOOKS_BASE_API_URL+'?author='+author);
+        }else{
+            return axios.get(BOOKS_BASE_API_URL+'?author='+author+'&sorting='+sorting);
+        }
     }
 }
 

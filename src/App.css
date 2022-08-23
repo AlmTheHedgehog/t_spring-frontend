@@ -28,6 +28,14 @@ b{
   font-size: 16pt;
 }
 
+.button-like-link{
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .newbook-form{
   margin: 100px;
   margin-top: 50px;

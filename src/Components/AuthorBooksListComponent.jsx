@@ -7,19 +7,52 @@ class BooksListComponent extends Component {
         super(props)
         this.state = {
             author: this.props.Author,
+            sorting: null,
             books:[]
         }
         this.getDate=this.getDate.bind(this);
+        this.putArrow=this.putArrow.bind(this);
     }
 
     componentDidMount(){
-        BookService.getBooksOfAuthor(this.state.author).then((res)=>{
+        BookService.getBooksOfAuthor(this.state.author, this.state.sorting).then((res)=>{
             this.setState({books: res.data});
         });
     }
 
     getDate(curBook){
         return curBook.publishDate.slice(0, 4);
+    }
+
+    putArrow(object){
+        if(this.state.sorting !== null){
+            if(this.state.sorting.includes(object)){
+                if(this.state.sorting.includes("Up")){
+                    return "↑";
+                }else if(this.state.sorting.includes("Down")){
+                    return "↓";
+                }else{
+                    console.error("Wrong sorting in this.state during putArrow(object)");
+                    return "";
+                }
+            }else{
+                return "";
+            }
+        }else{
+            return "";
+        }
+    }
+
+    sort(element){
+        if(this.state.sorting === BookService.getSortString("Down", element)){
+            this.setState({sorting: BookService.getSortString("Up", element)}, () => {
+                this.componentDidMount();
+            });
+        }else{
+            this.setState({sorting: BookService.getSortString("Down", element)}, () => {
+                this.componentDidMount();
+            });
+        }
     }
 
     render() {
@@ -32,7 +65,11 @@ class BooksListComponent extends Component {
                         <thead>
                             <tr>
                                 <th scope="col">Title</th>
-                                <th scope="col" className='text-center'>Year</th>
+                                <th scope="col" className='text-center'>
+                                    <button className='button-like-link' onClick={() => this.sort("Year")}>
+                                        Year{this.putArrow("Year")}
+                                    </button>
+                                </th>
                                 <th scope="col">Publisher</th>
                                 <th scope="col">ISBN</th>
                             </tr>
