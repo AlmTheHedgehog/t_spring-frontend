@@ -21,7 +21,7 @@ class Validator{
             }
         }
         if(isOnlyLetters){
-            if(!(/^[a-zA-Z\s]*$/.test(inputString))){
+            if(!(/^[a-zA-Z\s\.\-]*$/.test(inputString))){
                 Error = 'Must be only valid letters';
                 return Error;
             }
