@@ -62,15 +62,31 @@ class BooksListComponent extends Component {
                     <table className='table table-bordered'>
                         <thead>
                             <tr>
-                                <th scope="col">Title</th>
-                                <th scope="col">Author</th>
+                                <th scope="col">
+                                    <button className='button-like-link' onClick={() => this.sort("Title")}>
+                                        Title{this.putArrow("Title")}
+                                    </button>
+                                </th>
+                                <th scope="col">
+                                    <button className='button-like-link' onClick={() => this.sort("Author")}>
+                                        Author{this.putArrow("Author")}
+                                    </button>
+                                </th>
                                 <th scope="col" className='text-center'>
                                     <button className='button-like-link' onClick={() => this.sort("Year")}>
                                         Year{this.putArrow("Year")}
                                     </button>
                                 </th>
-                                <th scope="col">Publisher</th>
-                                <th scope="col">ISBN</th>
+                                <th scope="col">
+                                    <button className='button-like-link' onClick={() => this.sort("Publisher")}>
+                                        Publisher{this.putArrow("Publisher")}
+                                    </button>
+                                </th>
+                                <th scope="col">
+                                    <button className='button-like-link' onClick={() => this.sort("ISBN")}>
+                                        ISBN{this.putArrow("ISBN")}
+                                    </button>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
