@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-//const BOOKS_BASE_API_URL = "https://library-online-t-api-backend.herokuapp.com/api/v1/books"
-//const ONE_BOOK_BASE_API_URL = "https://library-online-t-api-backend.herokuapp.com/api/v1/book"
-const BOOKS_BASE_API_URL = "http://localhost:8080/api/v1/books"
-const ONE_BOOK_BASE_API_URL = "http://localhost:8080/api/v1/book"
+const BOOKS_BASE_API_URL = "https://library-online-t-api-backend.herokuapp.com/api/v1/books"
+const ONE_BOOK_BASE_API_URL = "https://library-online-t-api-backend.herokuapp.com/api/v1/book"
+//const BOOKS_BASE_API_URL = "http://localhost:8080/api/v1/books"
+//const ONE_BOOK_BASE_API_URL = "http://localhost:8080/api/v1/book"
 
 class BookService{
     /**
